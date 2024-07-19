@@ -5,7 +5,7 @@ import CartProduct from "./CartProduct"
 function CartProductList(){
     return(
         <>
-        <div className="font-bold flex justify-between bg-gray-100 mx-auto w-10/12 h-12 border">
+        <div className="font-bold mt-20 flex justify-between bg-gray-100 mx-auto w-10/12 h-12 border">
         <p className='my-auto ml-60 xl:ml-80' >Product</p>
         <p className='my-auto ml-44'>Price</p>
         <p className='my-auto ml-20 mr-16'>Quantity</p>

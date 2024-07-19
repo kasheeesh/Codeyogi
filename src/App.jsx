@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom';
 import Product from './Product';
 import {useParams} from 'react-router-dom';
 import Search from './Search';
-import CartProductList from './CartProductList';
+import Cart from './Cart';
 import Navbar from './Navbar';
 import Notfound from './Notfound';
 
@@ -35,9 +35,9 @@ function App() {
         <Route path="/" element={<ProductListPage />} />
         <Route path="/products/:id/" element={<ProductDetail onAddtoCart = {handleAddtoCart}/>} />
         <Route path="*" element={<Notfound />} />
+        <Route path ="/cart" element = {<Cart/>} />
       </Routes>
     <Footer/>
-    <CartProductList/>
     </div>
       </>
     
