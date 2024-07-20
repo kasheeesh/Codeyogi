@@ -35,7 +35,8 @@ function App() {
         <Route path="/" element={<ProductListPage />} />
         <Route path="/products/:id/" element={<ProductDetail onAddtoCart = {handleAddtoCart}/>} />
         <Route path="*" element={<Notfound />} />
-        <Route path ="/cart" element = {<Cart/>} />
+        <Route path ="/cart" element = {<Cart cart ={cart}/>} />
+        {console.log(cart)}
       </Routes>
     <Footer/>
     </div>

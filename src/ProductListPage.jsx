@@ -17,13 +17,11 @@ function ProductListPage() {
     getProductList().then((listData) => {
       let p = listData.data.products;
       setData(p);
-      console.log(p[0]);
     });
   }, []);
   const [query, changeQuery] = useState("");
   const[sort , setSort ] = useState("default");
   
-  console.log(data);
   
   function handler(event){
     let newq = event.target.value;
