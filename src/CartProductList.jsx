@@ -17,8 +17,8 @@ function CartProductList({ cart, productList }) {
                     const subtotal = product.price * cart[id];
                     return (
                         <CartProduct
-                            src={product.thumbnail} // Assuming `src` is a field in your product data
-                            title={product.title} // Assuming `description` is a field in your product data
+                            src={product.thumbnail}
+                            title={product.title} 
                             price={product.price}
                             quantity={cart[id]}
                             subtotal={subtotal}
