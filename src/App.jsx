@@ -6,7 +6,8 @@ import Search from './Search';
 import Cart from './Cart';
 import Navbar from './Navbar';
 import Notfound from './Notfound';
-
+import Signup from './Signup';
+import Login from './Login';
 import Footer from './Footer';
 import ProductList from './ProductList';
 import ProductListPage from './ProductListPage';
@@ -36,8 +37,10 @@ function App() {
         <Route path="/products/:id/" element={<ProductDetail onAddtoCart = {handleAddtoCart}/>} />
         <Route path="*" element={<Notfound />} />
         <Route path ="/cart" element = {<Cart cart ={cart}/>} />
-        {console.log(cart)}
+        <Route path = "/login" element = {<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
+
     <Footer/>
     </div>
       </>
