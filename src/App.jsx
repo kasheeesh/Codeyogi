@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import ProductListPage from './ProductListPage';
@@ -13,6 +13,7 @@ function App() {
     const savedDataString = localStorage.getItem("my-cart") || "{}";
     const savedData = JSON.parse(savedDataString);
     const [cart, setCart] = useState(savedData);
+    const [totalCount, setTotalCount] = useState(Object.keys(savedData).reduce((acc, curr) => acc + savedData[curr], 0));
 
     const handleAddToCart = (productId, count) => {
         const oldCount = cart[productId] || 0;
@@ -22,11 +23,17 @@ function App() {
     };
 
     const handleUpdateCart = (updatedCart) => {
-        setCart(updatedCart);
-        localStorage.setItem("my-cart", JSON.stringify(updatedCart));
+        const filteredCart = Object.fromEntries(
+            Object.entries(updatedCart).filter(([key, value]) => value > 0)
+        );
+        setCart(filteredCart);
+        localStorage.setItem("my-cart", JSON.stringify(filteredCart));
     };
 
-    const totalCount = Object.keys(cart).reduce((acc, curr) => acc + cart[curr], 0);
+    useEffect(() => {
+        const count = Object.keys(cart).reduce((acc, curr) => acc + cart[curr], 0);
+        setTotalCount(count);
+    }, [cart]);
 
     return (
         <div className="bg-gray-300">
