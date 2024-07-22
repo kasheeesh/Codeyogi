@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react';
 import CartProductList from './CartProductList';
 import getProductList from './Productfetch';
 
-function Cart({ cart }) {
+function Cart({ cart, onUpdateCart }) {
     const [data, setData] = useState([]);
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
         getProductList().then((listData) => {
-            let p = listData.data.products;
-            setData(p);
+            const products = listData.data.products;
+            setData(products);
         });
     }, []);
 
     useEffect(() => {
-        if (data.length > 0 && Object.keys(cart).length > 0) {
+        if (data.length > 0) {
             let totalValue = 0;
             for (let id in cart) {
                 if (cart.hasOwnProperty(id)) {
@@ -30,9 +30,7 @@ function Cart({ cart }) {
 
     return (
         <>
-            {console.log(cart, data)}
-
-            <CartProductList cart={cart} productList={data} />
+            <CartProductList cart={cart} productList={data} updateCart={onUpdateCart} />
 
             <div className="mr-32 mt-12 flex justify-between bg-gray-100 mx-auto w-5/12 h-12 border">
                 <p className="text-lg font-bold my-auto ml-12">Cart Totals</p>
