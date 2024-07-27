@@ -13,7 +13,7 @@ function App() {
     const savedDataString = localStorage.getItem("my-cart") || "{}";
     const savedData = JSON.parse(savedDataString);
     const [cart, setCart] = useState(savedData);
-    const [totalCount, setTotalCount] = useState(Object.keys(savedData).reduce((acc, curr) => acc + savedData[curr], 0));
+    const [totalCount, setTotalCount] = useState(0);
 
     const handleAddToCart = (productId, count) => {
         const oldCount = cart[productId] || 0;

@@ -23,7 +23,7 @@ function ProductDetail({ onAddToCart }) {
   }
 
   function onButtonClick() {
-    onAddToCart(id, count); // Ensure this is correct
+    onAddToCart(id, count);
   }
 
   if (!data) {
